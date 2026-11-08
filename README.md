@@ -8,10 +8,10 @@ RayNeo glasses, including the Air 3S Pro, already contain the sensors needed for
 
 While both options work, they each have limitations.
 
-- # Airpin
+- Airpin
 In my experience, Airpin is simple to set up but lacks many of the features available in Parallel. It also doesn't feel truly three-dimensional. The display appears more like a shifted 2D image rather than a virtual screen anchored in space.
 
-- # Parallel
+- Parallel
 Parallel is much more practical and provides real 3DoF support along with support for multiple windows. However, I ran into several issues while using it.
 
 During setup, the display is split into two sections with a blind spot in the center until all windows have been configured. Personally, I find this uncomfortable to look at and it often gives me a headache.
