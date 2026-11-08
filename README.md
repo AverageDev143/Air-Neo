@@ -4,7 +4,7 @@ Have you bought RayNeo AR glasses and wanted features like 3DoF spatial tracking
 Introducing Air Neo: a free PC-based software alternative inspired by the inair Pod experience. Air Neo brings many of the core features of inair OS to your computer, allowing you to enjoy immersive AR functionality, including spatial display features and enhanced 3D experiences, without requiring additional hardware.
 
 # How this works:
-Rayneo glasses such as the air 3s pro have the sensors for 3dof but lack the built-in software so you need to use external software such as Airpin or parallel.
+Rayneo glasses such as the air 3s pro have the sensors for 3dof but lack the built-in software inside of the glasses so you need to use external software such as Airpin or parallel.
 
 While you could use Airpin or Parallel they both have their downsides :
 
