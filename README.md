@@ -3,15 +3,15 @@ Have you ever bought a pair of RayNeo AR glasses and wished they supported featu
 
 Air Neo is a free PC application that aims to bring many of those features directly to your computer. The goal is to provide an experience similar to inair OS while giving users more control, more customization, and no additional hardware requirements.
 
-# How It Works
+-How It Works
 RayNeo glasses, including the Air 3S Pro, already contain the sensors needed for 3DoF tracking. However, the glasses themselves do not provide the software needed to make full use of those sensors. Instead, users currently have to rely on external applications such as Airpin or Parallel.
 
 While both options work, they each have limitations.
 
-- Airpin
+- # Airpin
 In my experience, Airpin is simple to set up but lacks many of the features available in Parallel. It also doesn't feel truly three-dimensional. The display appears more like a shifted 2D image rather than a virtual screen anchored in space.
 
-- Parallel
+- # Parallel
 Parallel is much more practical and provides real 3DoF support along with support for multiple windows. However, I ran into several issues while using it.
 
 During setup, the display is split into two sections with a blind spot in the center until all windows have been configured. Personally, I find this uncomfortable to look at and it often gives me a headache.
