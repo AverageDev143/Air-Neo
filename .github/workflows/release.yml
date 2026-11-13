@@ -36,5 +36,5 @@ jobs:
 
             This is an experimental development build. Check the repository README for current compatibility, known issues, and feature status. The website's visual preview is illustrative and does not mean every planned feature is implemented.
           files: |
-            SpatialDesk_round79.zip
+            SpatialDesk_round79.zip#Air-Neo-0.79-Windows.zip
           fail_on_unmatched_files: true
