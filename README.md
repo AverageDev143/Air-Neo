@@ -8,6 +8,10 @@ The long-term goal is to make a flexible, approachable experience inspired by pr
 
 > **Project vision:** Make spatial displays more accessible through software, better window management, and useful customization.
 
+## Documentation
+
+Read the [Air Neo Wiki](https://averagedev143.github.io/Air-Neo/wiki/) for installation, compatibility, troubleshooting, and development guides.
+
 ## Why Air Neo?
 
 RayNeo glasses provide a capable display, but getting a more immersive desktop experience can involve additional hardware or third-party software. Existing options can be useful, but they may involve trade-offs in price, usability, workflow, or customization.
@@ -67,7 +71,7 @@ The **RayNeo Air 3S Pro** is one of the devices considered during the project's 
    py run.py
    ```
 
-On the first launch, the launcher creates a local Python virtual environment in the project folder (the `.venv` folder) and installs the packages listed in `requirements.txt). It then starts the application. Later launches reuse that environment.
+On the first launch, the launcher creates a local Python virtual environment in the project folder (the `.venv` folder) and installs the packages listed in `requirements.txt`. It then starts the application. Later launches reuse that environment.
 
 **First-launch notes:**
 - Install Python 3 before running the command. The Windows Python Launcher (`py`) must be available in your terminal.
