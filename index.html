@@ -99,13 +99,31 @@ header.scrolled{background:rgba(8,13,24,.94);border-color:rgba(160,196,245,.16)}
 @media(max-width:820px){.hero{grid-template-columns:1fr;padding:72px 0 55px;gap:10px}.visual{min-height:350px}.halo{width:310px;height:310px}.glasses{transform:scale(.82) rotate(-7deg)}.grid{grid-template-columns:repeat(2,1fr)}.band{grid-template-columns:1fr;gap:25px}.download{align-items:flex-start;flex-direction:column}.downloadactions{flex-direction:row;flex-wrap:wrap}}
 @media(max-width:620px){.wrap{width:calc(100% - 34px)}header{height:68px}nav{display:none;position:absolute;top:68px;left:17px;right:17px;padding:18px;background:#111c2d;border:1px solid var(--line);border-radius:12px;z-index:5;flex-direction:column;gap:15px}nav.open{display:flex}.navlink{display:none}.menu{display:block}.hero{padding-top:61px}.hero h1{font-size:51px}.lead{font-size:13px}.visual{min-height:300px}.halo{width:260px;height:260px}.glasses{transform:scale(.67) rotate(-7deg)}.float-one{left:-5px;top:10px;transform:scale(.83) rotate(-5deg)}.float-two{right:-5px;bottom:8px;transform:scale(.83) rotate(4deg)}.section{padding:62px 0}.grid{grid-template-columns:1fr}.card{min-height:0}.steps{grid-template-columns:1fr;gap:6px}.download{padding:29px 22px}.downloadactions{flex-direction:column;width:100%}.downloadactions .btn{justify-content:center}.footrow{align-items:flex-start;flex-direction:column}.footlinks{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Final typography correction: restrained, light, editorial */
+:root{--white:#e9eef6}
+body{font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300;letter-spacing:-.012em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-synthesis:none}
+.brand{font-weight:550;letter-spacing:-.035em}
+.hero h1{font-weight:300;letter-spacing:-.09em;line-height:1.01}
+.hero h1 em{font-weight:300}
+.lead{font-size:14px;font-weight:300;letter-spacing:0;line-height:1.95;color:#aab5c5}
+.section h2,.download h2{font-weight:300;letter-spacing:-.075em;line-height:1.12}
+.sectionhead p,.copy,.card p,.step p,.faq details p,.download p{font-weight:300;letter-spacing:0;color:#a2adbd}
+.card h3,.step h3{font-weight:450;letter-spacing:-.025em}
+nav a,.navlink{font-weight:400}
+.btn{font-weight:450;letter-spacing:0}
+.kicker,.eyebrow{font-weight:400;letter-spacing:2.1px}
+.micro,footer{font-weight:300}
+.faq summary{font-weight:450;letter-spacing:-.015em}
+@media(max-width:620px){.hero h1{font-weight:300}.section h2,.download h2{font-weight:300}}
+
 </style>
 </head>
 <body>
 <div class="scroll-progress" aria-hidden="true"></div>
 <header class="wrap">
 <a class="brand" href="#top"><span class="logo">A</span> Air Neo</a>
-<nav id="nav"><a href="#vision">Vision</a><a href="#features">What it can become</a><a href="#start">Get started</a><a href="#faq">FAQ</a></nav>
+<nav id="nav"><a href="#vision">Vision</a><a href="#features">What it can become</a><a href="#start">Get started</a><a href="#faq">FAQ</a><a href="wiki/">Wiki</a></nav>
 <div class="navright"><a class="navlink" href="https://github.com/AverageDev143/Air-Neo" target="_blank" rel="noreferrer">GitHub ↗</a><button class="menu" id="menu" aria-expanded="false">Menu</button></div>
 </header>
 <main id="top">
@@ -131,7 +149,7 @@ header.scrolled{background:rgba(8,13,24,.94);border-color:rgba(160,196,245,.16)}
 </div></section>
 <section class="wrap"><div class="download"><div><div class="kicker">Air Neo / Windows package</div><h2>Take the project for a spin.</h2><p>Download the current Round 79 package, or browse the source and release notes on GitHub.</p></div><div class="downloadactions"><a class="btn primary" href="https://github.com/AverageDev143/Air-Neo/releases/latest">Download package ↓</a><a class="btn ghost" href="https://github.com/AverageDev143/Air-Neo/releases">All releases ↗</a></div></div></section>
 </main>
-<footer class="wrap"><div class="footrow"><a class="brand" href="#top"><span class="logo">A</span> Air Neo</a><div class="footlinks"><a href="#vision">Vision</a><a href="#features">Project direction</a><a href="#faq">FAQ</a><a href="https://github.com/AverageDev143/Air-Neo">GitHub ↗</a></div><span>© <span id="year"></span> Air Neo</span></div><p class="disclaimer">Air Neo is an independent community project and is not affiliated with RayNeo or InAir. Product names are used only to identify compatibility targets. Visuals on this page are illustrative. Feature availability, compatibility and setup requirements may change; consult the repository README and release notes before installing.</p></footer>
+<footer class="wrap"><div class="footrow"><a class="brand" href="#top"><span class="logo">A</span> Air Neo</a><div class="footlinks"><a href="#vision">Vision</a><a href="#features">Project direction</a><a href="#faq">FAQ</a><a href="wiki/">Wiki</a><a href="https://github.com/AverageDev143/Air-Neo">GitHub ↗</a></div><span>© <span id="year"></span> Air Neo</span></div><p class="disclaimer">Air Neo is an independent community project and is not affiliated with RayNeo or InAir. Product names are used only to identify compatibility targets. Visuals on this page are illustrative. Feature availability, compatibility and setup requirements may change; consult the repository README and release notes before installing.</p></footer>
 <script>
 const menu=document.getElementById('menu'),nav=document.getElementById('nav'),header=document.querySelector('header');
 menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});
