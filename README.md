@@ -75,6 +75,17 @@ Ideas, bug reports, and contributions are welcome. When reporting an issue, incl
 
 Air Neo is an independent community project and is not affiliated with, endorsed by, or officially supported by RayNeo or InAir. Product and company names are used only to identify compatible devices and related software.
 
+## Testing status and known issues
+
+Air Neo has been tested successfully on **Windows with the RayNeo Air 3S Pro**.
+
+The following issues are currently known:
+
+- **Virtual window clicks do not work:** Clicking on virtual windows is currently not functional.
+- **Aspect ratio:** Aspect-ratio handling is currently unreliable and may not display content at the correct proportions.
+
+These issues are known limitations and may be addressed in future updates. This testing result does not guarantee compatibility with other glasses models or PC configurations.
+
 ---
 
 *Air Neo — bringing a more flexible spatial desktop experience to your glasses.*
