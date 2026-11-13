@@ -28,13 +28,20 @@ jobs:
           body: |
             ## Air Neo 0.79 (Round 79)
 
-            Windows application package for the Air Neo project.
+            Experimental Windows application package for Air Neo.
 
             1. Download **Air-Neo-0.79-Windows.zip** below.
             2. Extract the ZIP.
-            3. Read the included README for setup and launch instructions.
+            3. Read the repository README for setup instructions.
 
-            This is an experimental development build. Check the repository README for current compatibility, known issues, and feature status. The website's visual preview is illustrative and does not mean every planned feature is implemented.
+            Check the README for current compatibility, known issues, and feature status. This development build is not a claim that every planned capability is implemented.
           files: |
-            SpatialDesk_round79.zip#Air-Neo-0.79-Windows.zip
+            SpatialDesk_round79.zip
           fail_on_unmatched_files: true
+      - name: Publish a cleanly named Windows download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp SpatialDesk_round79.zip Air-Neo-0.79-Windows.zip
+          gh release upload v0.79.0 Air-Neo-0.79-Windows.zip --clobber
+          gh release delete-asset v0.79.0 SpatialDesk_round79.zip --yes
