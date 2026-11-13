@@ -1,0 +1,40 @@
+name: Publish Air Neo release
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "SpatialDesk_round79.zip"
+      - ".github/workflows/release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Publish packaged application
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v0.79.0
+          name: Air Neo 0.79 — Round 79
+          target_commitish: main
+          make_latest: true
+          generate_release_notes: false
+          body: |
+            ## Air Neo 0.79 (Round 79)
+
+            Windows application package for the Air Neo project.
+
+            1. Download **Air-Neo-0.79-Windows.zip** below.
+            2. Extract the ZIP.
+            3. Read the included README for setup and launch instructions.
+
+            This is an experimental development build. Check the repository README for current compatibility, known issues, and feature status. The website's visual preview is illustrative and does not mean every planned feature is implemented.
+          files: |
+            SpatialDesk_round79.zip
+          fail_on_unmatched_files: true
