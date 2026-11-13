@@ -55,11 +55,57 @@ Air Neo is intended for use with RayNeo AR glasses and a Windows PC. Exact compa
 
 The **RayNeo Air 3S Pro** is one of the devices considered during the project's development. Do not assume that every feature works on every model.
 
+## Running on Windows
+
+1. Download the project ZIP from GitHub.
+2. Extract the ZIP to a folder on your PC.
+3. Open the extracted **Air Neo** folder.
+4. Open a terminal in that folder. In File Explorer, you can click the address bar, type `cmd`, and press Enter, or use **Open in Terminal**.
+5. Run:
+
+   ```powershell
+   py run.py
+   ```
+
+On the first launch, the launcher creates a local Python virtual environment in the project folder (the `.venv` folder) and installs the packages listed in `requirements.txt). It then starts the application. Later launches reuse that environment.
+
+**First-launch notes:**
+- Install Python 3 before running the command. The Windows Python Launcher (`py`) must be available in your terminal.
+- An internet connection is needed on the first launch so pip can download the required packages.
+- If `py` is not recognized, reinstall Python from [python.org](https://www.python.org/downloads/) and enable the option to add Python to PATH / install the Python Launcher.
+
+## Python requirements
+
+The Windows launcher installs the core dependencies automatically from `requirements.txt`:
+
+| Package | Minimum version | Purpose |
+|---|---:|---|
+| Python 3 | — | Runs the application and its launcher |
+| PySide6 | 6.6 | Application interface |
+| PyOpenGL | 3.1.7 | OpenGL rendering |
+| NumPy | 1.24 | Numerical and image data processing |
+| mss | 9.0 | Desktop/window screen capture |
+
+You do **not** need to install the Python packages manually when using `py run.py`; the launcher handles the core requirements in its private `.venv`.
+
+### Optional camera mode
+
+Camera mode (camera background, hand tracking, and the virtual keyboard) uses additional packages that are kept separate from the core install:
+
+- `opencv-python-headless>=4.8`
+- `mediapipe>=0.10.14`
+
+To install these optional packages into the app's virtual environment on Windows, run:
+
+```powershell
+.venv\Scripts\python -m pip install -r requirements-camera.txt
+```
+
+The core application does not require these optional camera packages.
+
 ## Development
 
-Air Neo is an evolving project. Features, compatibility, and setup instructions may change as development progresses.
-
-For now, check the repository's source and commit history for the latest implementation details. Installation and usage instructions will be added here once the project has a verified, repeatable setup process.
+Air Neo is an evolving project. Features, compatibility, and setup instructions may change as development progresses. Check the repository's source and commit history for the latest implementation details.
 
 ## Contributing
 
