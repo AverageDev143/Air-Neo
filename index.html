@@ -20,6 +20,40 @@ header{height:78px;display:flex;align-items:center;justify-content:space-between
 .download{border:1px solid rgba(149,187,240,.2);border-radius:18px;padding:48px;background:radial-gradient(ellipse at 85% 20%,rgba(93,128,228,.2),transparent 45%),linear-gradient(120deg,#14233a,#101827 65%,#17213b);display:flex;align-items:center;justify-content:space-between;gap:25px}.download h2{font-size:clamp(27px,4vw,42px);letter-spacing:-.05em;line-height:1.1;margin:10px 0}.download p{font-size:12px;color:#a5b4c9;max-width:520px;margin:0}.downloadactions{display:flex;flex-direction:column;gap:10px;min-width:180px}
 footer{border-top:1px solid var(--line);margin-top:90px;padding:30px 0 38px;color:#7e8da3;font-size:10px}.footrow{display:flex;justify-content:space-between;align-items:center;gap:20px}.footlinks{display:flex;gap:19px}.footlinks a:hover{color:#eef6ff}.disclaimer{max-width:800px;line-height:1.8;margin-top:18px}
 
+
+/* Editorial typography + cinematic scroll reveals */
+:root{--white:#edf2fa;--muted:#a2aec0}
+body{font-weight:350;letter-spacing:.005em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.hero h1{font-weight:340;letter-spacing:-.082em;line-height:.98}
+.hero h1 em{font-weight:320}
+.lead{font-weight:350;letter-spacing:.002em}
+.section h2,.download h2{font-weight:340;letter-spacing:-.065em}
+.sectionhead p,.copy,.card p,.step p,.faq details p,.download p{font-weight:350;letter-spacing:.005em}
+.card h3,.step h3{font-weight:520;letter-spacing:-.025em}
+nav,.navlink{font-weight:450;letter-spacing:.015em}
+.btn{font-weight:550;letter-spacing:.005em}
+.kicker,.eyebrow{font-weight:500;letter-spacing:2px}
+.reveal{opacity:0;transform:translate3d(0,38px,0);filter:blur(7px);transition:opacity .95s cubic-bezier(.19,1,.22,1),transform .95s cubic-bezier(.19,1,.22,1),filter .95s cubic-bezier(.19,1,.22,1);will-change:opacity,transform}
+.reveal.visible{opacity:1;transform:translate3d(0,0,0);filter:blur(0);will-change:auto}
+.sectionhead h2,.sectionhead p{opacity:0;transform:translateY(16px);transition:opacity .8s cubic-bezier(.19,1,.22,1),transform .8s cubic-bezier(.19,1,.22,1)}
+.sectionhead.visible h2{opacity:1;transform:translateY(0);transition-delay:.12s}
+.sectionhead.visible p{opacity:1;transform:translateY(0);transition-delay:.24s}
+.sectionhead .kicker{display:inline-block;transition:opacity .7s ease,transform .7s ease}
+.sectionhead:not(.visible) .kicker{opacity:0;transform:translateY(10px)}
+.sectionhead.visible .kicker{opacity:1;transform:translateY(0)}
+.card:nth-child(2),.step:nth-child(2){transition-delay:.1s}
+.card:nth-child(3),.step:nth-child(3){transition-delay:.2s}
+.card:nth-child(4){transition-delay:.08s}.card:nth-child(5){transition-delay:.16s}.card:nth-child(6){transition-delay:.24s}
+.faq details{transition:opacity .7s ease,transform .7s ease,border-color .25s}
+.band>div:first-child>*{transition:opacity .8s ease,transform .8s cubic-bezier(.19,1,.22,1)}
+.band.reveal:not(.visible)>div:first-child>*{opacity:0;transform:translateY(18px)}
+.band.reveal.visible>div:first-child>*{opacity:1;transform:translateY(0)}
+.band.reveal.visible>div:first-child>*:nth-child(2){transition-delay:.12s}
+.band.reveal.visible>div:first-child>*:nth-child(3){transition-delay:.24s}
+.scroll-progress{position:fixed;z-index:40;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#8ee5df,#9baeff,#b6a2ff);pointer-events:none}
+@media(max-width:620px){.reveal{transform:translate3d(0,24px,0);filter:blur(4px)}.hero h1{font-weight:350}}
+@media(prefers-reduced-motion:reduce){.reveal,.sectionhead h2,.sectionhead p,.sectionhead .kicker,.band>div:first-child>*{opacity:1!important;transform:none!important;filter:none!important;transition:none!important;will-change:auto!important}}
+
 /* Motion and interaction polish */
 html{scroll-behavior:smooth}
 header{position:sticky;top:0;z-index:20;background:rgba(8,13,24,.76);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:border-color .3s,background .3s}
@@ -68,6 +102,7 @@ header.scrolled{background:rgba(8,13,24,.94);border-color:rgba(160,196,245,.16)}
 </style>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"></div>
 <header class="wrap">
 <a class="brand" href="#top"><span class="logo">A</span> Air Neo</a>
 <nav id="nav"><a href="#vision">Vision</a><a href="#features">What it can become</a><a href="#start">Get started</a><a href="#faq">FAQ</a></nav>
@@ -103,11 +138,16 @@ menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
 document.getElementById('year').textContent=new Date().getFullYear();
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealTargets=document.querySelectorAll('.sectionhead,.band,.card,.step,.faq details,.download');
 if(!reduceMotion&&'IntersectionObserver'in window){
- const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12,rootMargin:'0px 0px -35px 0px'});
- document.querySelectorAll('.sectionhead,.band,.card,.step,.faq details,.download').forEach(el=>{el.classList.add('reveal');observer.observe(el)});
-}
-let lastY=0;window.addEventListener('scroll',()=>{const y=window.scrollY;if((y>24)!==header.classList.contains('scrolled'))header.classList.toggle('scrolled',y>24);lastY=y},{passive:true});
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+ revealTargets.forEach(el=>{el.classList.add('reveal');observer.observe(el)});
+}else{revealTargets.forEach(el=>el.classList.add('visible'))}
+const progress=document.querySelector('.scroll-progress');
+let scrollQueued=false;
+function updateScrollUI(){const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.transform='scaleX('+(max>0?window.scrollY/max:0)+')';header.classList.toggle('scrolled',window.scrollY>24);scrollQueued=false}
+window.addEventListener('scroll',()=>{if(!scrollQueued){requestAnimationFrame(updateScrollUI);scrollQueued=true}},{passive:true});
+updateScrollUI();
 if(!reduceMotion&&window.matchMedia('(pointer:fine)').matches){
  const visual=document.querySelector('.visual');visual.addEventListener('pointermove',e=>{const r=visual.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;visual.style.setProperty('--px',x.toFixed(3));visual.style.setProperty('--py',y.toFixed(3));visual.querySelector('.glasses').style.translate=(x*9)+'px '+(y*7)+'px'});
  visual.addEventListener('pointerleave',()=>{visual.querySelector('.glasses').style.translate='0 0'});
